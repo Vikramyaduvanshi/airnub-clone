@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIRBNB Project</title>
+</head>
+<link rel="stylesheet" href="checkout.css">
+
+<body style="overflow-x: hidden;">
+    <!-- upper Line left mea hea project logo -->
+    <header class="header">
+        <!-- TODO: Remove class -->
+        <nav class="nav">
+            <!-- Navigation without the search bar -->
+            <div class="container container--nav">
+                <!-- logo -->
+                <a href="../index.html" class="logo">
+                    <img src="./images/logo.png" alt="logo" />
+                </a>
+                <!-- all the right aligned content in navigation -->
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#" class="nav__link">Airbnb your home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#" class="nav__link nav__link--earth">
+                            <img src="./images/icons/earth.svg" alt="earth" />
+                        </a>
+                    </li>
+                    <li class="nav__item nav__item--rounded">
+                        <a href="#" class="nav__link nav__link--rounded">
+                            <div class="hamburger">
+                                <img src="images/icons/menu.svg" alt="hamburger" />
+                            </div>
+                            <!-- TODO: Change classname to avatar -->
+                            <div class="user">
+                                <img src="images/icons/user.svg" alt="user icon" />
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- The Search bar -->
+            <!-- TODO: change to wrapper -->
+            <div class="search__container">
+                <div class="search-bar">
+                    <p>Start Your Search</p>
+                    <div class="search-icon__container">
+                        <img src="./images/icons/search.svg" alt="search" />
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <nav class="nav-m">
+            <div class="container center flex">
+                <div class="img-wrapper img__container--rotate">
+                    <img src="./images/icons/small-arrow.svg" alt="arrow" />
+                </div>
+                <div class="img-wrapper img-wrapper--right">
+                    <img src="./images/icons/share.png" alt="arrow" class="share-img" />
+                </div>
+                <div class="img-wrapper">
+                    <img src="./images/icons/heart.svg" alt="heart" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container1">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h2>Request to Book</h2>
+            <br>
+            <div class="section0">
+                <h3>Your Trip</h3>
+                <br>
+                <div class="details">
+                    <div>
+                        <p>Dates:</p>
+                        <br>
+                        <p>21-28 feb</p>
+                    </div>
+                    <a href="#" class="edit">Edit</a>
+                </div>
+                <br>
+                <br>
+                <div class="details">
+                    <div>
+                        <p> Check-In-Time:</p>
+                        <br>
+                        <p>10 am</p>
+                    </div>
+                    <br>
+                    <a href="#" class="edit">Edit</a>
+                </div>
+                <br>
+                <br>
+                <div class="details">
+                    <div>
+                        <p>Guests:</p>
+                        <br>
+                        <p>2 Guests</p>
+                    </div>
+                    <br>
+                    <br>
+                    <a href="#" class="edit">Edit</a>
+                </div>
+            </div>
+            <br>
+            <div class="underline"></div>
+            <br>
+            <br>
+            <br>
+            <div class="section">
+                <div class="pay">
+                    <h3>Pay with</h3>
+
+                    <div class="logos">
+                        <img src="visalogo.png" alt="Visa" width="25">
+                        <img src="mastercard.jpg" alt="MasterCard" width="25">
+                        <img src="amexcard.jpg" alt="Amex" width="25">
+                        <img src="rupaycard.png" alt="Rupay" width="25">
+                        <img src="upi.jpg" alt="Upi" width="25">
+                    </div>
+                </div>
+                <br>
+                <select id="payment" name="payment" onchange="togglePaymentOptions()"
+                    style="width: 100%; height: 50px;; border-radius: 10px; margin: 5px;">
+                    <option value="upi">📱 UPI</option>
+                    <option value="credit_debit">💳 Credit or Debit Card</option>
+                    <option value="net_banking">🏦 Net Banking</option>
+                </select>
+                <div id="upiOptions" style="display:none;">
+                    <button onclick="payUsingUPIQR()">
+                        <label>
+                            <input type="radio" name="payment" checked> Pay using UPI QR Code
+                        </label>
+                        <br>
+                        <label>
+                            <input type="radio" name="payment"> UPI ID
+                        </label>
+                    </button>
+                </div>
+
+                <div id="cardDetails" style="display:none; border:none; ">
+                    <input type="text" placeholder="  Card Holder Name"
+                        style="width: 100%; height: 50px; border-radius: 10px; margin:5px;" />
+                    <input type="text" placeholder="  Card Number"
+                        style="width: 100%; height: 50px; border-radius: 10px; margin:5px;" />
+                    <div style="display: flex; justify-content: space-between;">
+                        <input type="text" placeholder="  Expiry Date"
+                            style="width: 50%; height: 50px; border-radius: 10px; margin: 5px;" />
+                        <input type="text" placeholder="  CVV"
+                            style="width: 49%; height: 50px; border-radius: 10px; margin: 5px;" />
+                    </div>
+                </div>
+
+                <div id="bankOptions" style="display:none;">
+                    <select style="width: 100%; height: 50px; border-radius: 10px;">
+                        <option value="text" style="width: 50%; height: 50px; border-radius: 10px;"> Select Bank
+                        </option>
+                        <option value="bank1">HDFC Bank</option>
+                        <option value="bank2">ICICI Bank</option>
+                        <option value="bank3">Axis Bank</option>
+                        <option value="bank4">SBI</option>
+                        <option value="bank5">Kotak Mahindra Bank</option>
+                        <option value="bank6">IDBI Bank</option>
+                        <option value="bank7">Bank of Baroda</option>
+                        <option value="bank8">Canara Bank</option>
+                        <option value="bank9">Union Bank of India</option>
+                        <option value="bank10">Punjab National Bank</option>
+                        <option value="bank11">Bank of India</option>
+                        <option value="bank12">Indian Bank</option>
+                        <option value="bank13">Central Bank of India</option>
+                        <option value="bank14">Bank Of Baroda</option>
+                        <option value="bank15">Au Small Finance Bank</option>
+                        <option value="bank16">Bandhan Bank</option>
+                        <option value="bank17">Federal Bank</option>
+                        <option value="bank18">IDFC Fisrst Bank</option>
+                        <option value="bank19">Jana Small Fiance Bank</option>
+                        <option value="bank20">North East Small Finance Bank</option>
+                        <option value="bank21">Punjab & Sind Bank</option>
+                        <option value="bank22">RBL Bank Limited</option>
+                        <option value="bank23">UCO Bank</option>
+                        <option value="bank24">Yes Bank</option>
+                        <option value="bank25">Tamil-Nadu State Co-Operative Bank</option>
+                        <option value="bank26">Saraswat Bank</option>
+                        <option value="bank27">South Indian Bank</option>
+                        <option value="bank28">TJSB Bank</option>
+                        <option value="bank29">Standard Chartered Bank</option>
+                        <option value="bank30">Bank Of Maharastra</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+
+                <br>
+            </div>
+            <div class="section">
+                <h3>Required for your trip</h3>
+                <br>
+                <div class="section1">
+                    <p><strong>Message to the Host</strong> <br>Before You Can Continue , let Subhangi know about your
+                        trip and why their place is a good fit.</p>
+                    <br>
+                    <button>Add</button>
+                </div>
+                <br>
+                <div class="section1">
+                    <p><strong>Phone Number</strong><br>Add an conform your phone number to get trip updates.</p>
+                    <br>
+                    <button>Add</button>
+                </div>
+                <!-- right section -->
+
+                <!-- <button> Profile Photo</button> -->
+
+            </div>
+            <br>
+            <div class="section">
+                <h3>Cancellation Policy</h3>
+                <br>
+                <p><strong>Free cancellation before 12 Feb.</strong> After that, the reservation is non-refundable.<a
+                        href="#" class="rule">Learn more.</a> </p>
+            </div>
+            <div class="section">
+                <h3>Ground Rules</h3>
+                <br>
+                <p>We Ask Every Guest To Remember A few Simple Things About What Makes A Great Guest. </p>
+                <br>
+                <ul>
+                    <li>Follow the house rules</li>
+                    <br>
+                    <li>Treat your host's home like your own</li>
+                </ul>
+                <div class="underline"></div>
+                <br>
+                <p><strong>The Host will need to accept this request.</strong>You'll pay now ,but <br>will get a full
+                    refund if your reservation isn't confirmed within 24 hours.</p>
+                <br>
+                <div class="underline"></div>
+                <br>
+                <p>By something the button below, I agree to the <a href="#" class="rule">Host's House Rule. Ground
+                        rules for guest, Airbnb's Rebooking And Refund Policy</a> and that Airbnb can <a href="#"
+                        class="payment">change my payement method</a> if I'm responsible for damage. </p>
+                <a href="#" class="request-btn" onclick="bookRoom()">Request to Book</a>
+            </div>
+        </div>
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <img src="https://a0.muscache.com/im/pictures/miso/Hosting-874543076124276233/original/41705f79-bfbb-4119-a7e4-912fd86cb552.jpeg?im_w=720&im_format=avif" alt="Listing Image" style="width: 100%; border-radius: 8px;">
+            <h3>Luxurious 5BHK Villa
+            </h3>
+            <p class="apartment">Entire apartment • 4.92<img src="star image.png" alt="Star Image"
+                    style="height:17px; width: 17px;padding-top:2px;"> (85 reviews) • Superhost</p>
+            <ul class="price-summary">
+                <li><span>₹33,100 x 5 night</span><span>₹1,65,500</span></li>
+                <li><span>Airbnb service fee</span><span>₹2000</span></li>
+                <li><span>Taxes</span><span>₹5000</span></li>
+                <li class="total"><span>Total (INR)</span><span>1,72,000</span></li>
+            </ul>
+        </div>
+    </div>
+
+
+
+</body>
+<script src="./checkout.js"></script>
+
+</html>
